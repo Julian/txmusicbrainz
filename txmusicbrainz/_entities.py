@@ -38,4 +38,6 @@ class BoundEntityRetriever(object):
         return self.client.request(path)
 
     def search(self, query):
-        return self.client.request(self.path + "?query=" + query)
+        return self.client.request(
+            self.path + "?" + urlencode([("query", query)]),
+        )
