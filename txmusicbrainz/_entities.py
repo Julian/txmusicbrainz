@@ -38,6 +38,13 @@ class BoundEntityRetriever(object):
         return self.client.request(path)
 
     def search(self, query):
+        """
+        Perform a (Lucene) search of the entity.
+
+        :argument str query: a properly escaped Lucene query
+
+        """
+
         return self.client.request(
             self.path + "?" + urlencode([("query", query)]),
         )
